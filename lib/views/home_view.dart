@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/widgets/category_card.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -25,25 +26,11 @@ class HomeView extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Container(
-            width: 150,
-            height: 100,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/business1.webp'),
-                fit: BoxFit.fill,
-              ),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Center(
-              child: Text(
-                'Business',
-                style: TextStyle(color: Colors.white, fontSize: 15,),
-              ),
-            ),
-          ),
+          CategoryCard(),
         ],
       ),
     );
   }
 }
+
+
