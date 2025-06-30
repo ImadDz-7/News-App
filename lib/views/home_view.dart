@@ -11,7 +11,7 @@ class HomeView extends StatelessWidget {
         elevation: 0,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             Text(
               'News',
               style: TextStyle(color: Colors.black),
@@ -22,6 +22,21 @@ class HomeView extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      body: Column(
+        children: [
+          Container(
+            width: 150,
+            height: 100,
+            color: Colors.blue,
+            child: Center(
+              child: Text(
+                'Business',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
