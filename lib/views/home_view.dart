@@ -28,11 +28,17 @@ class HomeView extends StatelessWidget {
           Container(
             width: 150,
             height: 100,
-            color: Colors.blue,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/business1.webp'),
+                fit: BoxFit.fill,
+              ),
+              borderRadius: BorderRadius.circular(8),
+            ),
             child: Center(
               child: Text(
                 'Business',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: 15,),
               ),
             ),
           ),
