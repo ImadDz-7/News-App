@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/widgets/categories_list_view.dart';
 import 'package:news_app/widgets/category_card.dart';
 
 class HomeView extends StatelessWidget {
@@ -26,7 +27,7 @@ class HomeView extends StatelessWidget {
       ),
       body: Column(
         children: [
-          CategoryCard(),
+          CategoriesListView(),
         ],
       ),
     );
