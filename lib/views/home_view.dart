@@ -27,11 +27,15 @@ class HomeView extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          CategoriesListView(),
-          SizedBox(height: 16),
-          Expanded(
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: CategoriesListView(),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(height: 16),
+          ),
+          SliverToBoxAdapter(
             child: NewsListView(),
           ),
         ],
