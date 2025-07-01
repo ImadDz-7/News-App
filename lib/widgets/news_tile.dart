@@ -35,6 +35,7 @@ class NewsTile extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
         ),
+        const SizedBox(height: 12),
       ],
     );
   }
