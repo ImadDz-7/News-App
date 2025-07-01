@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/constants.dart';
+import 'package:news_app/models/category_model.dart';
 import 'package:news_app/widgets/category_card.dart';
 
 class CategoriesListView extends StatelessWidget {
   const CategoriesListView({super.key});
+
+  final List<CategoryModel> categories = kCategoriesList;
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +15,11 @@ class CategoriesListView extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
-        itemCount: 10,
+        itemCount: categories.length,
         itemBuilder: ((context, index) {
-          return CategoryCard();
+          return CategoryCard(
+            category: categories[index],
+          );
         }),
       ),
     );
