@@ -27,16 +27,15 @@ class HomeView extends StatelessWidget {
           ],
         ),
       ),
-      body: NewsListView(),
-      //  Column(
-      //   children: [
-      //     CategoriesListView(),
-      //     SizedBox(height: 16),
-          
-      //   ],
-      // ),
+      body: Column(
+        children: [
+          CategoriesListView(),
+          SizedBox(height: 16),
+          Expanded(
+            child: NewsListView(),
+          ),
+        ],
+      ),
     );
   }
 }
-
-
