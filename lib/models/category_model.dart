@@ -2,7 +2,7 @@ class CategoryModel {
   final String categoryName;
   final String image;
 
-  CategoryModel({
+ const CategoryModel({
     required this.categoryName,
     required this.image,
   });
