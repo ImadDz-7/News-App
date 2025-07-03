@@ -13,34 +13,44 @@ class NewsListViewBuilder extends StatefulWidget {
 }
 
 class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
-  List<ArticleModel> articles = [];
-  bool isLoading = true;
+  var future;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    getGeneralNews();
+    future = NewsService(Dio()).getTopHeadlines();
   }
 
-  Future<void> getGeneralNews() async {
-    articles = await NewsService(Dio()).getTopHeadlines();
-    isLoading = false;
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
-    return isLoading
-        ? const SliverFillRemaining(
+    return FutureBuilder<List<ArticleModel>>(
+      future: future,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return NewsListView(articles: snapshot.data!);
+        } else if (snapshot.hasError) {
+          return const ErrorMessageWidget(
+              message: 'Oops there was an error, please try later!');
+        } else {
+          return const SliverFillRemaining(
             child: Center(
               child: CircularProgressIndicator(),
             ),
-          )
-        : articles.isNotEmpty
-            ? NewsListView(articles: articles)
-            : const ErrorMessageWidget(
-                message: 'Oops there was an error, please try later!',
-              );
+          );
+        }
+      },
+    );
+    // return isLoading
+    //     ? const SliverFillRemaining(
+    //         child: Center(
+    //           child: CircularProgressIndicator(),
+    //         ),
+    //       )
+    //     : articles.isNotEmpty
+    //         ? NewsListView(articles: articles)
+    //         : const ErrorMessageWidget(
+    //             message: 'Oops there was an error, please try later!',
+    //           );
   }
 }
